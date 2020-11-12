@@ -1,13 +1,16 @@
 package com.tcs.ecommerce.dao;
 
+import java.security.ProtectionDomain;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
 import javax.swing.text.html.HTMLDocument.HTMLReader.PreAction;
 
+import com.mysql.cj.protocol.Resultset;
 import com.tcs.ecommerce.model.Product;
 import com.tcs.ecommerce.utils.DBUtils;
 
@@ -77,7 +80,44 @@ public static ProductDAO getInstance() {
 	@Override
 	public Optional<Product> getProductById(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		Connection connection = DBUtils.getConnection();
+		PreparedStatement preparedStatement = null;
+		ResultSet resultSet = null;
+		
+		Product product = null;
+		String query = "select * from product where productid=?";
+		try {
+			 preparedStatement = connection.prepareStatement(query);
+			 preparedStatement.setInt(1,id);
+			
+			resultSet =  preparedStatement.executeQuery();
+			 
+			if(resultSet.next()) {
+				 product = new Product();
+				product.setProductId(resultSet.getInt("productid"));
+				product.setProductName(resultSet.getString("productname"));
+				product.setDescription(resultSet.getString("description"));
+				product.setCategory(resultSet.getString("category"));
+				product.setPrice(resultSet.getFloat("price"));
+				
+				 
+			}
+			 
+		} catch (SQLException e) {
+			try {
+				connection.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return Optional.empty();
+		}
+		finally {
+			DBUtils.closeConnection(connection);
+		}
+		return Optional.of(product);
 	}
 
 	@Override
