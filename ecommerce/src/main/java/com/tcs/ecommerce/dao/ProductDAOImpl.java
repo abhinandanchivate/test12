@@ -40,7 +40,7 @@ public static ProductDAO getInstance() {
 		Connection connection = DBUtils.getConnection();
 		PreparedStatement preparedStatement = null;
 		int result = 0;
-		String insertProduct = "insert into product (productid,productname,description,category,price) values(?,?,?,?,?)";
+		String insertProduct = "insert into PRODUCT (productid,productname,description,category,price) values(?,?,?,?,?)";
 		try {
 			 preparedStatement = connection.prepareStatement(insertProduct);
 			 preparedStatement.setInt(1, product.getProductId());
@@ -85,7 +85,7 @@ public static ProductDAO getInstance() {
 		ResultSet resultSet = null;
 		
 		Product product = null;
-		String query = "select * from product where productid=?";
+		String query = "select * from PRODUCT where productid=?";
 		try {
 			 preparedStatement = connection.prepareStatement(query);
 			 preparedStatement.setInt(1,id);
