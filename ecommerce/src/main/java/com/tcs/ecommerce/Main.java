@@ -14,7 +14,7 @@ public class Main {
 		
 		Product product = new Product(2, "laptop", "i5 1oth gen", 123.0f, "laptop");
 		
-		ProductService productService = new ProductServiceImpl();
+		ProductService productService =  ProductServiceImpl.getInstance();
 		
 		String result = productService.createProduct(product);
 		
