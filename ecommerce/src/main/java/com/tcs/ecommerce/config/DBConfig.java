@@ -21,7 +21,7 @@ public class DBConfig {
 	// it will create a singleton object for u.
 	
 	@Bean
-	@Lazy
+	//@Lazy
 	public DataSource getMySQLDataSource() {
 		System.out.println("hello from abhi");
 		BasicDataSource dataSource = new  BasicDataSource();
