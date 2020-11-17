@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -31,7 +32,7 @@ public class DBConfig {
 	//@Lazy
 	public DataSource getMySQLDataSource() {
 		System.out.println("hello from abhi");
-		BasicDataSource dataSource = new  BasicDataSource();
+		DriverManagerDataSource dataSource = new  DriverManagerDataSource();
 		
 		dataSource.setDriverClassName(environment.getProperty("db.driver"));
 		dataSource.setUrl(environment.getProperty("db.url"));
