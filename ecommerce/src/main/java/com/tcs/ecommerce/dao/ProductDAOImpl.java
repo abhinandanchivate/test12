@@ -18,7 +18,7 @@ import com.mysql.cj.protocol.Resultset;
 import com.tcs.ecommerce.model.Product;
 import com.tcs.ecommerce.utils.DBUtils;
 
-@Repository
+//@Repository
 public class ProductDAOImpl implements ProductDAO {
 
 	//DBUtils object or not?
