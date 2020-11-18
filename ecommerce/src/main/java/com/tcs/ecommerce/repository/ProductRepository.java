@@ -11,4 +11,10 @@ import com.tcs.ecommerce.model.Product;
 public interface ProductRepository extends JpaRepository<Product, Integer> {
 
 	List<Product> findByCategory(String catName);
+	// select * from product where price > pricevalue
+	List<Product> findByPriceGreaterThan(float priceValue );
+	List<Product> findByCategoryAndPriceLessThan(String category,float price);
+	
+	//("a%")
+	List<Product> findByProductNameLike(String productName);
 }
