@@ -20,5 +20,7 @@ public class Role {
 	private String name;
 	private String description;
 	
+	// many roles can be taken by a many user
+	
 
 }
