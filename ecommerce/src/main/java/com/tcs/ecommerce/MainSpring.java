@@ -1,5 +1,8 @@
 package com.tcs.ecommerce;
 
+import java.util.List;
+import java.util.Optional;
+
 import javax.sql.DataSource;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -22,13 +25,24 @@ public class MainSpring {
 		System.out.println(productService.equals(productService2));
 		System.out.println(productService == productService2);
 		
+		Optional<List<Product>> optional = productService.getProductsByCategory("mac laptop");
 		
-		if(productService.getProductById(5).isPresent()) {
-			System.out.println("product exists ");
+		if(optional.isPresent()) {
+			List<Product> products = optional.get();
+			products.forEach(p->{
+				System.out.println(p);
+			});
 		}
 		else {
-			System.out.println("not available");
+			System.out.println("problem");
 		}
+//		
+//		if(productService.getProductById(5).isPresent()) {
+//			System.out.println("product exists ");
+//		}
+//		else {
+//			System.out.println("not available");
+//		}
 		context.close();
 	}
 
