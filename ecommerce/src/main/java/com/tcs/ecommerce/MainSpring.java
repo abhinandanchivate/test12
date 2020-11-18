@@ -21,6 +21,14 @@ public class MainSpring {
 		System.out.println(result);
 		System.out.println(productService.equals(productService2));
 		System.out.println(productService == productService2);
+		
+		
+		if(productService.getProductById(5).isPresent()) {
+			System.out.println("product exists ");
+		}
+		else {
+			System.out.println("not available");
+		}
 		context.close();
 	}
 
