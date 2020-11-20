@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("com.tcs.ecommerce.repository")
+@EnableJpaRepositories("com.tcs.mvcdemo.repository")
 @PropertySource("classpath:db.properties")
 public class RootConfig {
 // services repository
@@ -52,7 +52,7 @@ public class RootConfig {
 		properties.setProperty("hibernate.hbm2ddl.auto", environment.getProperty("hibernate.hbm2ddl.auto"));
 		properties.setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
 		entityManagerFactoryBean.setPersistenceProviderClass(HibernatePersistenceProvider.class);
-		entityManagerFactoryBean.setPackagesToScan("com.tcs.ecommerce.model");
+		entityManagerFactoryBean.setPackagesToScan("com.tcs.mvcdemo.model");
 		entityManagerFactoryBean.setJpaProperties(properties);
 		
 		return entityManagerFactoryBean;
