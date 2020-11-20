@@ -31,6 +31,7 @@ public class AuthController {
 		ModelAndView modelAndView = new ModelAndView();
 		if(result.hasErrors()) {
 			result.getFieldErrors().forEach(e->{
+				modelAndView.addObject(e.getField(), e.getDefaultMessage());
 				System.out.println(e.getDefaultMessage() + " "+ e.getField());
 				
 			});
