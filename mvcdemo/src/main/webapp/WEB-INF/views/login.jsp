@@ -7,8 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Hello From Spring MVC
-<div>
-<a href="/auth/login.html">Login</a></div>
+THis is Login Page
 </body>
 </html>
