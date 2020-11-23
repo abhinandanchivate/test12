@@ -10,5 +10,6 @@
 Hello From Spring MVC
 <div>
 <a href="/auth/login.html">Login</a></div>
+<a href="/guest">Guest Link</a>
 </body>
 </html>

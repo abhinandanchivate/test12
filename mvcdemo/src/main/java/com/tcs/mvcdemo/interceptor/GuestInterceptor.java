@@ -32,6 +32,7 @@ public class GuestInterceptor implements HandlerInterceptor {
 			throws Exception {
 		// TODO Auto-generated method stub
 		
+		System.out.println("after completion method of intercepotr");
 
 	}
 

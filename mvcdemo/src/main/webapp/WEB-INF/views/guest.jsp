@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
+Hello from Guest
+${fname }
 
+${lname }
 </body>
 </html>
