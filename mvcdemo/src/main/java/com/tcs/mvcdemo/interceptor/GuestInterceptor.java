@@ -21,13 +21,17 @@ public class GuestInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
+		
 
+		System.out.println("called after handler method request completion but before rendering");
+		modelAndView.addObject("lname", "chivate");
 	}
 
 	@Override
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		// TODO Auto-generated method stub
+		
 
 	}
 
